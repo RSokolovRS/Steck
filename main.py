@@ -1,43 +1,46 @@
+# res = ['(', '(', ')', ')']
 
+class Steck:
 
-class Stek:
-
-    def __init__(self, _list):
-        self._list = _list
+    def __init__(self, res):
+        self.res = list(res)
 
     def is_empty(self):
-        "проверка стека на пустоту. Метод возвращает True или False"
-        for i in self._list:
-            if '(' == i:
-                return False
-            else:
-                return True
-    
-    def push(self):
-        "добавляет новый элемент на вершину стека. Метод ничего не возвращает"
-        pass
+        """проверка стека на пустоту. Метод возвращает True или False"""
+
+        return len(self.res) != 0
+
+    def push(self, new):
+        """добавляет новый элемент на вершину стека. Метод ничего не возвращает"""
+        return self.res.append(new)
 
     def pop(self):
-        "удаляет верхний элемент стека. Стек изменяется. Метод возвращает верхний элемент стека"
-        pass
+        """удаляет верхний элемент стека. Стек изменяется. Метод возвращает верхний элемент стека"""
+        # self._list.pop()
+        return self.res.pop()
 
     def peek(self):
-        "возвращает верхний элемент стека, но не удаляет его. Стек не меняется"
-        pass
+        """возвращает верхний элемент стека, но не удаляет его. Стек не меняется"""
+        return self.res[-1]
 
     def size(self):
-        "возвращает количество элементов в стеке"
-        return len(self._list)
+        """возвращает количество элементов в стеке"""
+        return len(self.res)
 
     def __str__(self):
-        if len(self._list) % 2 == 0:
+        if len(self.res) % 2 == 0:
             return 'Сбалансированно'
-        elif len(self._list) % 2 != 0:
-            return 'Несбалансированно'
         else:
-            return None
+            return 'Несбалансированно'
 
-res = ['(', '(', ')', ')']
+data = '(((([{}]))))'
 
-if __name__ == '__main__':
-    Stek(res)
+steck = Steck(data)
+
+while steck.is_empty() == True:
+    i = steck.pop()
+    print(i)
+
+
+
+
