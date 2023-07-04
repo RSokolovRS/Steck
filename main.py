@@ -7,12 +7,11 @@ class Steck:
 
     def is_empty(self):
         """проверка стека на пустоту. Метод возвращает True или False"""
-
         return len(self.res) != 0
 
     def push(self, new):
         """добавляет новый элемент на вершину стека. Метод ничего не возвращает"""
-        return self.res.append(new)
+        self.res.append(new)
 
     def pop(self):
         """удаляет верхний элемент стека. Стек изменяется. Метод возвращает верхний элемент стека"""
